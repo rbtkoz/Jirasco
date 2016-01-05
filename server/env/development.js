@@ -22,5 +22,14 @@ module.exports = {
         //Use this public key when configuring the Incoming authentication in the Applink in the
         //Atlassian application.
         RsaPublicKey: "-----BEGIN PUBLIC KEY----------END PUBLIC KEY-----"
+    },
+
+    "JIRA":{
+
+        host: "mlexperiment.atlassian.net",
+        port: "443",
+        user: "admin",
+        password : "1NYP48"
+
     }
 }

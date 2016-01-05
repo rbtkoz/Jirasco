@@ -11,7 +11,6 @@ module.exports = function (app) {
     };
 
     require('./app-variables')(app);
-    require('./custom')(app);
     require('./static-middleware')(app);
     require('./parsing-middleware')(app);
 
@@ -20,6 +19,8 @@ module.exports = function (app) {
     app.use(app.getValue('log'));
 
     require('./authentication')(app);
+    //data to jira path
+    require('./custom')(app);
 
 
 };
