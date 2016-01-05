@@ -23,5 +23,11 @@ module.exports = {
         "clientID": process.env.GOOGLE_CLIENT_ID,
         "clientSecret": process.env.GOOGLE_CLIENT_SECRET,
         "callbackURL": process.env.CALLBACK_URL
+    },
+    "JIRA": {
+        "host": process.env.JIRA_HOST,
+        "port": process.env.JIRA_PORT,
+        "user": process.env.JIRA_USER,
+        "password" : process.env.JIRA_PASSWORD
     }
 };
