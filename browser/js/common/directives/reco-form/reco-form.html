@@ -1,8 +1,10 @@
 
 
-
+<div ng-show ="warning" class="alert alert-warning">
+    <strong> Sorry, an error has occured. Please try again</strong>
+    <p>{{warning}}</p>
+</div>
 <form id="login-form" name="loginForm" ng-submit ="loginForm.$valid && sendReco(reco)">
-
     <div class="form-group">
         <label for="name">What's your email address?</label>
         <input type="email" ng-model ="reco.email" class="form-control" id="reco-email" placeholder="awesome@macmillan.com">
@@ -43,19 +45,19 @@
         <ul>
             <li>
                 <label for="priority_1">
-                    <input type="radio" id="priority_1" ng-model="reco.priority" value="LOW" />
+                    <input type="radio" id="priority_1" ng-model="reco.priority" value="High" />
                     LOW
                 </label>
             </li>
             <li>
                 <label for="priority_2">
-                    <input type="radio" id="priority_2"ng-model="reco.priority" value="NEUTRAL" />
+                    <input type="radio" id="priority_2"ng-model="reco.priority" value="Medium" />
                     NEUTRAL
                 </label>
             </li>
             <li>
                 <label for="priority_3">
-                    <input type="radio" id="priority_3" ng-model="reco.priority" value="HIGH" />
+                    <input type="radio" id="priority_3" ng-model="reco.priority" value="Low" />
                     HIGH
                 </label>
             </li>
@@ -67,4 +69,4 @@
 
 </form>
 
-<pre>reco = {{reco | json}}</pre>
+<!--<pre>reco = {{reco | json}}</pre>-->
