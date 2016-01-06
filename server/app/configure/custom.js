@@ -89,8 +89,24 @@ module.exports = function(app){
 
 
         var response = {
-            "text": "<Click to start improving!|https://jirasco-app.herokuapp.com/>"
+            "attachments": [
+                {
+                    "fallback": "Click to start improving!",
+                    "color": "#36a64f",
+                    "pretext": "Created by Macmillan Learning Digital Innovation",
+                    "title": "Click to start improving our products!",
+                    "title_link": "https://jirasco-app.herokuapp.com/",
+                    "fields": [
+                        {
+                            "title": "Priority",
+                            "value": "High",
+                            "short": false
+                        }
+                    ],
+                }
+            ]
         }
+
         res.json(response);
     });
 
