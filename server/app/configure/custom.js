@@ -88,26 +88,21 @@ module.exports = function(app){
 
 
 
-        var response = {
+
+       var response = {
             "attachments": [
-                {
-                    "fallback": "Click to start improving!",
-                    "color": "#36a64f",
-                    "pretext": "Created by Macmillan Learning Digital Innovation",
-                    "title": "Click to start improving our products!",
-                    "title_link": "https://jirasco-app.herokuapp.com/",
-                    "fields": [
-                        {
-                            "title": "Priority",
-                            "value": "High",
-                            "short": false
-                        }
-                    ],
-                }
+            {
+                "fallback": "Click to start improving! - https://jirasco-app.herokuapp.com/",
+                "pretext": "Made by MLDPI",
+                "title": "Click to start improving our products!",
+                "title_link": "https://jirasco-app.herokuapp.com/",
+                "color": "#7CD197"
+            }
             ]
         }
 
-        res.send(response);
+
+        res.json(response);
     });
 
 
