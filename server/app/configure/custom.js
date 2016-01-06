@@ -77,8 +77,19 @@ module.exports = function(app){
 
     app.post("/slack", function(req,res,next){
 
+        //initial call with "idea" -> response= Great, let's add some feature suggestions. I will ask you 7 questions( type cancel at any point to stop process) Let's get started
+        //What's your email address?
+        //What is the name of this improvement?
+        //Can you briefly describe the improvement?
+        //Who recommended this improvement(type their email)
+        //What subject(s) does it affect?
+        //Which of our Macmillan Learning Products does it affect?
+        //How important is this suggestion( LOW, NEUTRAL, HIGH)
+
+
+
         var response = {
-            "text": "Thank you for the suggestion"
+            "text": "<Click to start improving!|https://jirasco-app.herokuapp.com/>"
         }
         res.json(response);
     });
