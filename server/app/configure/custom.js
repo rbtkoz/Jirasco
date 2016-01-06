@@ -76,7 +76,11 @@ module.exports = function(app){
     });
 
     app.post("/slack", function(req,res,next){
-        res.json("baby")
+
+        var response = {
+            "text": "Thank you for the suggestion"
+        }
+        res.json(response);
     });
 
 
