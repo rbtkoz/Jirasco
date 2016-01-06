@@ -107,7 +107,7 @@ module.exports = function(app){
             ]
         }
 
-        res.json(response);
+        res.send(response);
     });
 
 
