@@ -12,6 +12,7 @@ module.exports = function(app){
 
     var JiraConfig = app.getValue('env').JIRA;
     var jira = new JiraApi('https', JiraConfig.host,JiraConfig.port,JiraConfig.user, JiraConfig.password, '2');
+
     app.post("/update", function(req,res,next){
 
         //find issue code
@@ -23,7 +24,6 @@ module.exports = function(app){
 
         //add new issue
         var issue = req.body.params;
-        //console.log(issue, "got issue")
         var payload =
             {
                 "fields": {
@@ -71,12 +71,14 @@ module.exports = function(app){
                     return res.json(post);
                 })
                 //return res.json(resp);
-
             }
         });
-
-
     });
+
+    app.post("/slack", function(req,res,next){
+        res.json("baby")
+    });
+
 
 }
 
