@@ -21,31 +21,41 @@ var mongoose = require('mongoose');
 var Promise = require('bluebird');
 var chalk = require('chalk');
 var connectToDb = require('./server/db');
-var User = Promise.promisifyAll(mongoose.model('User'));
+var User = Promise.promisifyAll(mongoose.model('Reco'));
 
-var seedUsers = function () {
+var seedRecos = function () {
 
-    var users = [
+    var recos = [
         {
-            email: 'testing@fsa.com',
-            password: 'password'
+            summary: 'Recommendation for better homework',
+            description: 'If we make the homework easier it will be better',
+            initiator: 'kozovski.a@gmail.com',
+            customer: 'alex.kozovski@macmillan.com',
+            subject: 'Molecular Biology',
+            products: 'Launchpad',
+            priority: 'Medium'
         },
         {
-            email: 'obama@gmail.com',
-            password: 'potus'
+            summary: 'Recommendation for better stuffed grape leaves',
+            description: 'If we make the grapeleaves easier it will be better',
+            initiator: 'kozovski.a@gmail.com',
+            customer: 'alex.kozovski@macmillan.com',
+            subject: 'Molecular Grape Leaves',
+            products: 'Grapepad',
+            priority: 'HIGH'
         }
     ];
 
-    return User.createAsync(users);
+    return Reco.createAsync(recos);
 
 };
 
 connectToDb.then(function () {
-    User.findAsync({}).then(function (users) {
-        if (users.length === 0) {
-            return seedUsers();
+    Reco.findAsync({}).then(function (reco) {
+        if (reco.length === 0) {
+            return seedRecos();
         } else {
-            console.log(chalk.magenta('Seems to already be user data, exiting!'));
+            console.log(chalk.magenta('Seems to already be reco data, exiting!'));
             process.kill(0);
         }
     }).then(function () {

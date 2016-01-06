@@ -2,6 +2,9 @@
  * Created by alex.kozovski on 12/17/15.
  */
 'use strict';
+
+var mongoose = require('mongoose');
+var RecoModel = mongoose.model('Reco');
 var JiraApi = require('jira').JiraApi;
 
 module.exports = function(app){
@@ -9,7 +12,7 @@ module.exports = function(app){
 
     var JiraConfig = app.getValue('env').JIRA;
     var jira = new JiraApi('https', JiraConfig.host,JiraConfig.port,JiraConfig.user, JiraConfig.password, '2');
-    app.post("/update", function(req,res){
+    app.post("/update", function(req,res,next){
 
         //find issue code
         //jira.findIssue('NEW-1', function(error, issue) {
@@ -43,14 +46,32 @@ module.exports = function(app){
                 }
             }
 
+        //for mongodb
+        var mongopayload =
+            {
+                summary: issue.name,
+                description: issue.description,
+                initiator: issue.email,
+                customer: issue.origin,
+                subject: issue.subject,
+                products: issue.products,
+                priority: issue.priority
+            }
+
         jira.addNewIssue(payload, function(err, resp) {
 
             if(err) {
                 console.log(err.errors, "err")
                 return res.json(err);
             } else{
-                console.log(resp, "resp")
-                return res.json(resp);
+                console.log(resp, "...also Saving to DB")
+
+                RecoModel.create(mongopayload, function(err, post){
+                    if(err) return next(err);
+                    return res.json(post);
+                })
+                //return res.json(resp);
+
             }
         });
 
