@@ -102,7 +102,16 @@ module.exports = function(app){
         }
 
 
-        res.json(response);
+        res.send({
+            text: 'DESTROY! DESTROY!',
+            channel: `#${msg.message.room}`,
+            username: 'Milton',
+            attachments: [
+                { 'image_url': 'http://imgur.com/IiRg53h.jpg' },
+                { 'image_url': 'http://imgur.com/bfp2vS1.jpg' },
+                { 'image_url': 'http://imgur.com/7L2jeRN.jpg' }
+            ]
+        });
     });
 
 
