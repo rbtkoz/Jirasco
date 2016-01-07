@@ -68,7 +68,9 @@ module.exports = function(app){
 
                 RecoModel.create(mongopayload, function(err, post){
                     if(err) return next(err);
-                    return res.json(post);
+                    res.send('https://hooks.slack.com/commands/1234/5678',{
+                        text: 'Thanks for Improving Macmillan Learning'
+                    });
                 })
                 //return res.json(resp);
             }
@@ -88,8 +90,7 @@ module.exports = function(app){
 
 
 
-
-       var response = {
+        var response = {
             "attachments": [
             {
                 "fallback": "Click to start improving! - https://jirasco-app.herokuapp.com/",
@@ -103,7 +104,7 @@ module.exports = function(app){
 
 
         res.send({
-            text: 'DESTROY! DESTROY!',
+            text: 'Created by ML+DPI',
             attachments: [
                 {
                     "title": "Click to start improving our products!",
