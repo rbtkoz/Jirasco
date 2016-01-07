@@ -105,9 +105,10 @@ module.exports = function(app){
         res.send({
             text: 'DESTROY! DESTROY!',
             attachments: [
-                { 'image_url': 'http://imgur.com/IiRg53h.jpg' },
-                { 'image_url': 'http://imgur.com/bfp2vS1.jpg' },
-                { 'image_url': 'http://imgur.com/7L2jeRN.jpg' }
+                {
+                    "title": "Click to start improving our products!",
+                    "title_link": "https://jirasco-app.herokuapp.com/"
+                }
             ]
         });
     });
