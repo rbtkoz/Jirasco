@@ -68,9 +68,9 @@ module.exports = function(app){
 
                 RecoModel.create(mongopayload, function(err, post){
                     if(err) return next(err);
-                    res.send('https://hooks.slack.com/commands/1234/5678',{
-                        text: 'Thanks for Improving Macmillan Learning'
-                    });
+                    //res.send('https://hooks.slack.com/commands/1234/5678',{
+                    //    text: 'Thanks for Improving Macmillan Learning'
+                    //});
                 })
                 //return res.json(resp);
             }
@@ -79,16 +79,7 @@ module.exports = function(app){
 
     app.post("/slack", function(req,res,next){
 
-        //initial call with "idea" -> response= Great, let's add some feature suggestions. I will ask you 7 questions( type cancel at any point to stop process) Let's get started
-        //What's your email address?
-        //What is the name of this improvement?
-        //Can you briefly describe the improvement?
-        //Who recommended this improvement(type their email)
-        //What subject(s) does it affect?
-        //Which of our Macmillan Learning Products does it affect?
-        //How important is this suggestion( LOW, NEUTRAL, HIGH)
-
-
+        console.log(req.body, "request body");
 
         var response = {
             "attachments": [
@@ -101,6 +92,8 @@ module.exports = function(app){
             }
             ]
         }
+
+
 
 
         res.send({
