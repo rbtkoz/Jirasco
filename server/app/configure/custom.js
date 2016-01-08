@@ -103,7 +103,7 @@ module.exports = function(app){
             attachments: [
                 {
                     "title": "Hi "+req.body.user_name + ", Click to start improving our products!",
-                    "title_link": "https://jjgthzbzsx.localtunnel.me"
+                    "title_link": "https://jirasco-app.herokuapp.com"
 
                 }
             ]
