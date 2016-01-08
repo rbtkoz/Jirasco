@@ -9,7 +9,13 @@ app.factory('JiraFactory',function($http) {
         return $http.post('update/',
             {params:{ description :payload[0], email :payload[1],  name :payload[2], origin :payload[3], priority :payload[4], products :payload[5], subject: payload[6]}})
             .then(function(response){
-                return response;
+
+
+                //return $http.post('toslack/').then(function(response){
+                //    console.log(response);
+                    return response;
+                //})
+                //return response;
             })
 
     }
