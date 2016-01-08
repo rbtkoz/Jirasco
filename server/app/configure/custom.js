@@ -86,10 +86,7 @@ module.exports = function(app){
         //Which of our Macmillan Learning Products does it affect?
         //How important is this suggestion( LOW, NEUTRAL, HIGH)
 
-
-
-
-       var response = {
+        var response = {
             "attachments": [
             {
                 "fallback": "Click to start improving! - https://jirasco-app.herokuapp.com/",
@@ -101,8 +98,9 @@ module.exports = function(app){
             ]
         }
 
-
+        app.post()
         res.json(response);
+
     });
 
 
